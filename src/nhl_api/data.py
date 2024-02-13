@@ -34,9 +34,9 @@ from nhlpy.api.schedule import Schedule
 #from nhl_api_client.models import SeasonStandings, WeekSchedule, Game
 
 def get_score_details(date):
-    client = NHLClient(verbose=False)
+    client = NHLClient(verbose=True)
     with client as client:
-        score_details = client.game_center.score_now()
+        score_details = client.game_center.score_now(date)
         return score_details
 
 def get_team_schedule(team_code, season_code):

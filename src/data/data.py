@@ -292,7 +292,7 @@ class Data:
         attempts_remaining = 5
         while attempts_remaining > 0:
             try:
-                data = nhl_api.data.get_score_details("{}-{}-{}".format(self.year, self.month, self.day))
+                data = nhl_api.data.get_score_details("{}-{}-{}".format(self.year, str(self.month).zfill(2), str(self.day).zfill(2)))
                 if not data:
                     self.games = []
                     self.pref_games = []

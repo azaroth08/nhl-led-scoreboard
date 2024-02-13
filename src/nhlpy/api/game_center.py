@@ -1,4 +1,5 @@
 from nhlpy.http_client import HttpClient
+from typing import Optional
 
 class GameCenter:
     def __init__(self, http_client: HttpClient):
@@ -13,5 +14,5 @@ class GameCenter:
     def landing(self,game_id: str) -> dict:
         return self.client.get(resource=f"gamecenter/{game_id}/landing").json()
 
-    def score_now(self) -> dict:
-        return self.client.get(resource="score/now").json()
+    def score_now(self,date: Optional[str]= None) -> dict:
+        return self.client.get(resource=f"score/{date if date else 'now'}").json()
