@@ -252,7 +252,6 @@ class Data:
             try:
                 teams = nhl_api.info.team_info()
                 self.network_issues = False
-                #print(teams)
                 return teams
 
             except ValueError as error_message:

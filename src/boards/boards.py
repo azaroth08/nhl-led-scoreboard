@@ -226,10 +226,10 @@ class Boards:
         '''
             forcing it to show since the playoff start and regular season end are in conflict for 2021
         '''
-        Seriesticker(data, matrix, sleepEvent).render()
-        '''if data.status.is_playoff(data.today, data.playoffs):
+        #Seriesticker(data, matrix, sleepEvent).render()
+        if data.isPlayoff:
             Seriesticker(data, matrix, sleepEvent).render()
-        '''    
+            
     
     def stanley_cup_champions(self, data, matrix, sleepEvent):
         StanleyCupChampions(data, matrix, sleepEvent).render()

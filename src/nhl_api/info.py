@@ -34,7 +34,14 @@ def team_info():
         team_info = TeamInfo(team, team_details)
         teams_data[raw_team_id] = team_info
 
-    return teams_data
+    if "59" in teams_data:
+        return teams_data
+    else:
+
+        team_details = TeamDetails("59", "Utah Hockey Club", "UTA")
+        team_info = TeamInfo(team, team_details)
+        teams_data[59] = team_info
+        return teams_data
     # TODO: I think most of this is now held in the TeamStandings object, but leaving here for reference
     # for team in teams_data:
     #     try:
