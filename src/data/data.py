@@ -252,6 +252,7 @@ class Data:
             try:
                 teams = nhl_api.info.team_info()
                 self.network_issues = False
+                #print(teams)
                 return teams
 
             except ValueError as error_message:
@@ -567,7 +568,7 @@ class Data:
 
 
 
-                        self.isPlayoff = True
+                        self.isPlayoff = False
 
                     except AttributeError as error:
                         debug.error("The {} Season playoff has not started yet or is unavailable".format(self.playoffs.season))
