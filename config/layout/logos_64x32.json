@@ -161,8 +161,8 @@
       },
       "ANA": {
         "home": {
-          "zoom": "80%",
-          "position": [-22, 3]
+          "zoom": "100%",
+          "position": [-8, 3]
         },
         "away": {
           "zoom": "80%",
