@@ -4,7 +4,6 @@ geocoder>=1.38.1
 gpiozero==1.6.2
 nhl-api-py
 noaa-sdk>=0.1.18
-pyowm>=3.0.0
 python-tsl2591==0.2.0
 regex>=2020.4.4
 APScheduler==3.10.4
