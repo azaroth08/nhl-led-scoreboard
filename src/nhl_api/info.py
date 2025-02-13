@@ -41,7 +41,22 @@ def team_info():
         team_details = TeamDetails("59", "Utah Hockey Club", "UTA")
         team_info = TeamInfo(team, team_details)
         teams_data[59] = team_info
-        return teams_data
+
+    team_details = TeamDetails("60", "Canada", "CAN")
+    team_info = TeamInfo(team, team_details)
+    teams_data[60] = team_info
+    team_details = TeamDetails("66", "Sweden", "SWE")
+    team_info = TeamInfo(team, team_details)
+    teams_data[66] = team_info
+    team_details = TeamDetails("67", "USA", "USA")
+    team_info = TeamInfo(team, team_details)
+    teams_data[67] = team_info
+    team_details = TeamDetails("62", "Finland", "FIN")
+    team_info = TeamInfo(team, team_details)
+    teams_data[62] = team_info
+
+
+    return teams_data
     # TODO: I think most of this is now held in the TeamStandings object, but leaving here for reference
     # for team in teams_data:
     #     try:

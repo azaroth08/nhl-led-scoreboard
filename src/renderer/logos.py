@@ -13,7 +13,7 @@ gid = int(os.stat("./VERSION").st_uid)
 PATH = 'assets/logos'
 LOCAL_LOGO_URL = PATH+'/_local/{}_{}.svg'
 LOGO_URL = 'https://assets.nhle.com/logos/nhl/svg/{}_{}.svg'
-
+LOGO_URL_NTL = 'https://assets.nhle.com/logos/ntl/svg/{}_20242025-20242025_{}.svg'
 
 
 class LogoRenderer:
@@ -27,7 +27,7 @@ class LogoRenderer:
             gameLocation,
             self.logo_variant
         )
-        
+
         self.element_layout = element_layout
 
         self.load(team_abbrev)
@@ -69,6 +69,8 @@ class LogoRenderer:
             ))
        
     def save_image(self, filename, team_abbrev):
+        print(filename)
+        print(team_abbrev)
         if not os.path.exists(os.path.dirname(filename)):
             try:
                 os.makedirs(os.path.dirname(filename))
@@ -76,9 +78,14 @@ class LogoRenderer:
             except OSError as exc: # Guard against race condition
                 if exc.errno != errno.EEXIST:
                     raise
-        try:        
+        try:
+            if team_abbrev == "SWE" or team_abbrev == "CAN" or team_abbrev == "FIN" or team_abbrev == "USA":
+                url = LOGO_URL_NTL.format(team_abbrev, self.logo_variant)
+            else:
+                url = LOGO_URL.format(team_abbrev, self.logo_variant)
+            print(url)
             self.logo = ImageHelper.image_from_svg(
-                LOGO_URL.format(team_abbrev, self.logo_variant)
+                url
             )
         except:
             self.logo = ImageHelper.image_from_svg(
