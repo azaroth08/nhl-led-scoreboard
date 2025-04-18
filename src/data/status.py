@@ -7,7 +7,7 @@ class Status:
         game_status = [] # game_status_info()
         # self.season_info = current_season_info()['seasons'][0]
         #self.next_season_info = next_season_info()['seasons'][0]
-        self.season_id = 20232024 # self.season_info["seasonId"]
+        self.season_id = 20242025# self.season_info["seasonId"]
         self.Preview = []
         self.Live = []
         self.GameOver = []
