@@ -567,7 +567,7 @@ class Data:
 
 
 
-                        self.isPlayoff = False
+                        self.isPlayoff = True
 
                     except AttributeError as error:
                         debug.error("The {} Season playoff has not started yet or is unavailable".format(self.playoffs.season))
