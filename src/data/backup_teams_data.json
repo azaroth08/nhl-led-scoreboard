@@ -413,12 +413,19 @@
     "rawTricode": "EDM",
     "triCode": "EDM"
   }, {
-    "id": 59,
-    "franchiseId": 59,
-    "fullName": "Utah Hockey Club",
+    "id": 68,
+    "franchiseId": 68,
+    "fullName": "Utah Mammoth",
     "leagueId": 133,
     "rawTricode": "UTA",
     "triCode": "UTA"
+  }, {
+    "id": 60,
+    "franchiseId": 60,
+    "fullName": "Canada",
+    "leagueId": 133,
+    "rawTricode": "CAN",
+    "triCode": "CAN"
   }],
   "total": 60
 }

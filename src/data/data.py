@@ -563,11 +563,9 @@ class Data:
 
 
                         
-                    
 
 
-
-                        self.isPlayoff = True
+                        self.isPlayoff = False
 
                     except AttributeError as error:
                         debug.error("The {} Season playoff has not started yet or is unavailable".format(self.playoffs.season))
@@ -581,6 +579,7 @@ class Data:
                 debug.error(error_message)
                 attempts_remaining -= 1
                 sleep(NETWORK_RETRY_SLEEP_TIME)
+
 
     def check_stanley_cup_champion(self):
         if self.isPlayoff and self.stanleycup_round:
