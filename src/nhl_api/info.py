@@ -34,17 +34,7 @@ def team_info():
         team_info = TeamInfo(team, team_details)
         teams_data[raw_team_id] = team_info
 
-    if "68" in teams_data:
-        return teams_data
-    else:
 
-        team_details = TeamDetails("59", "Utah Mammoth", "UTA")
-        team_info = TeamInfo(team, team_details)
-        teams_data[68] = team_info
-
-    team_details = TeamDetails("60", "Canada", "CAN")
-    team_info = TeamInfo(team, team_details)
-    teams_data[60] = team_info
     team_details = TeamDetails("66", "Sweden", "SWE")
     team_info = TeamInfo(team, team_details)
     teams_data[66] = team_info
