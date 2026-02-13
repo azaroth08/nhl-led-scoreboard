@@ -123,7 +123,7 @@ class Scoreboard:
                     players = get_goal_players(play["details"], self.away_roster, self.home_roster)
                     away_goal_plays.append(Goal(play, players))
                 except KeyError:
-                    debug.error("Failed to get Goal details for current live game. will retry on data refresh")
+                    print("Failed to get Goal details for current live game. will retry on data refresh")
                     away_goal_plays = []
                     break
             # Get the Home Goal details
@@ -134,7 +134,7 @@ class Scoreboard:
                     players = get_goal_players(play["details"], self.home_roster, self.away_roster)
                     home_goal_plays.append(Goal(play,players))
                 except KeyError:
-                    debug.error("Failed to get Goal details for current live game. will retry on data refresh")
+                    print("Failed to get Goal details for current live game. will retry on data refresh")
                     home_goal_plays = []
                     break
 
@@ -232,7 +232,12 @@ class GameSummaryBoard:
             away_team_name = away_team["name"]["default"]
         elif away_team.get("placeName"):
             away_team_name = away_team["placeName"]["default"]
-        away_abbrev = data.teams_info[away_team_id].details.abbrev
+
+        try: 
+            away_abbrev = data.teams_info[away_team_id].details.abbrev
+        except KeyError:
+            away_abbrev = away_team.get("abbrev", "???")
+            print("Away team abbrev not found in teams_info for team ID {}. Using fallback abbrev: {}".format(away_team_id, away_abbrev))
 
         # home = linescore.teams.home
         home_team = game_details["homeTeam"]
@@ -241,7 +246,11 @@ class GameSummaryBoard:
             home_team_name = home_team["name"]["default"]
         elif home_team.get("placeName"):
             home_team_name = home_team["placeName"]["default"]
-        home_abbrev = data.teams_info[home_team_id].details.abbrev
+        try:
+            home_abbrev = data.teams_info[home_team_id].details.abbrev
+        except KeyError:
+            home_abbrev = home_team.get("abbrev", "???")
+            print("Home team abbrev not found in teams_info for team ID {}. Using fallback abbrev: {}".format(home_team_id, home_abbrev))
 
         if game_details["homeTeam"].get("score") or game_details["awayTeam"].get("score"):
             self.away_team = TeamScore(away_team_id, away_abbrev, away_team_name, game_details["awayTeam"]["score"])
