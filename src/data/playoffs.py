@@ -68,7 +68,7 @@ class Series:
                 #self.short_status = series.currentGame.seriesSummary.seriesStatusShort
                 self.current_game_date = datetime.strptime(self.current_game["startTimeUTC"].split("T")[0], "%Y-%m-%d").strftime("%b %d")
                 self.current_game_start_time = convert_time(datetime.strptime(self.current_game["startTimeUTC"], '%Y-%m-%dT%H:%M:%SZ')).strftime(data.config.time_format)
-            except error as e:
+            except Exception as e:
                 debug.info("Unknown error:")
                 print(e)
 
